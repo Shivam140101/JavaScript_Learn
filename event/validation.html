@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        .col-75 p {
+            display: none;
+        }
+
+        .invalid input,
+        .invalid select,
+        .invalid textarea {
+            border-color: red;
+        }
+
+        .invalid p {
+            display: block;
+            color: red;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+
+            .col-25,
+            .col-75,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="" name="form" id="form">
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">First Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    <p>Please enter first name</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    <p>Please enter Last name</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="country">Country</label>
+                </div>
+                <div class="col-75">
+                    <select id="country" name="country">
+                        <option value="" hidden>Select Country</option>
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="usa">USA</option>
+                    </select>
+                    <p>Please select country</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="subject">Subject</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                        style="height:200px"></textarea>
+
+                    <p>Please enter subject</p>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let form = document.getElementById('form')
+
+
+        form.addEventListener('submit', function(event) {
+
+            let fname = document.getElementById('fname')
+            let lname = document.getElementById('lname')
+            let country = document.getElementById('country')
+            let subject = document.getElementById('subject')
+
+            if(fname.value == '') {
+                fname.parentElement.className = 'col-75 invalid'
+                event.preventDefault();
+            }else {
+                fname.parentElement.className = 'col-75' 
+            }
+
+            if(lname.value == '') {
+                lname.parentElement.className = 'col-75 invalid'
+                event.preventDefault();
+            }else {
+                lname.parentElement.className = 'col-75' 
+            }
+
+            if(country.value == '') {
+                country.parentElement.className = 'col-75 invalid'
+                event.preventDefault();
+            }else {
+                country.parentElement.className = 'col-75' 
+            }
+
+            if(subject.value == '') {
+                subject.parentElement.className = 'col-75 invalid'
+                event.preventDefault();
+            }else {
+                subject.parentElement.className = 'col-75' 
+            }
+        })
+
+        form.addEventListener('submit', function (event) {
+            for (const el of document.forms['form']) {
+                if (el.value == '') {
+                    el.parentElement.className = 'col-75 invalid'
+                    event.preventDefault();
+                } else {
+                    el.parentElement.className = 'col-75'
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

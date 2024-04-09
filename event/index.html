@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1 -->
+    <!-- <button onclick="console.log('inline event button clicked')">Click me</button>-->
+
+    <!-- <button onclick="buttonClicked(event)">Click me</button> -->
+   <!-- <button id="button">Click me</button>-->
+
+
+    <div id="root">
+
+    </div>
+
+    <script>
+        // function buttonClicked(event){
+        //     console.log(event.target);
+        //     console.log('inline event button clicked');
+        // }
+
+       // let button = document.getElementById('button');
+        //console.dir(button);
+
+        //2
+        //button.onclick = function(event){
+        //    console.log(event);
+        // console.log('inline event button clicked');
+        // }
+
+        // 3
+       // button.addEventListener('click', () => {
+       //     console.log('inline event button clicked');
+       // })
+
+       // this
+       //button.onclick = function(event){
+       // console.dir(this);
+       //}
+
+      // button.onclick = (event)=>{ 
+      //  console.dir(this);
+      // }
+
+      // button.addEventListener('click', function(event){
+      //   console.log(this);
+      // })
+
+      // button.addEventListener('click',(event)=>{
+      //   console.log(this);
+      // })
+
+      class Button{
+        fullName = "Shivam";
+
+        // buttonClicked() {
+            //     console.log("button clicked");
+            //     console.log(this.fullName); // undefined
+            // }
+
+            buttonClicked = () => {
+                console.log("button clicked");
+                console.log(this.fullName);
+            }
+        render() {
+            let root = document.getElementById('root');
+            let button = document.createElement('button');
+
+            button.id = 'button';
+            button.innerText = "Click Me!";
+
+             //  button.addEventListener('click',this.buttonClicked.bind(this))
+                button.addEventListener('click', this.buttonClicked)
+
+
+            root.append(button);
+        }
+      }
+
+      let button = new Button();
+      button.render();
+    </script>
+</body>
+
+</html>

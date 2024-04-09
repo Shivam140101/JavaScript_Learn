@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="" id="form">
+        <input type="text" name="first_name" id="first_name" placeholder="Enter First Name">
+
+        <br>
+        <button>Submit</button>
+    </form>
+
+    <script>
+        let input = document.getElementById("input");
+        //submit 
+       //  let form = document.getElementById("form");
+       //  form.addEventListener('submit',function(event){
+       //      event.preventDefault();
+       //      console.log("submit event called");
+       //  })
+
+        //onchange
+        // input.addEventListener('change',function(event){
+        //    // console.log(event.target.value);
+        //   // console.log(event.target.files);
+        // })
+
+        //focus
+        // input.addEventListener('focus',function(event){
+        //     console.log("focus event called");
+        // })
+
+        //blur
+       input.addEventListener('blur',function(event){
+            console.log("blur event called");
+        })
+    </script>
+</body>
+</html>
